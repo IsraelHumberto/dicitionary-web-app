@@ -1,11 +1,12 @@
 import Head from 'next/head'
+import { useContext, useEffect } from 'react'
 import styled from 'styled-components'
-
-const Container = styled.div`
-  background-color: red;
-`
+import { ThemeContext } from '../utils/theme'
 
 export default function Home() {
+
+  const {theme, toggleTheme} = useContext(ThemeContext)
+
   return (
     <>
       <Head>
@@ -14,9 +15,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container>
-        Lorem50
-      </Container>
+      <button onClick={toggleTheme}>
+        DARK MODE
+      </button>
     </>
   )
 }
